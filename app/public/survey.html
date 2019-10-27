@@ -55,7 +55,7 @@
                             <label for="menuQuestion2" class="font-weight-bold">You love being the center of attention.</label>
                             <div class="row">
                                 <div class="col-auto">
-                                    <select id="menuQuestion1" class="form-control">
+                                    <select id="menuQuestion2" class="form-control">
                                         <option>Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -74,7 +74,7 @@
                             <label for="menuQuestion3" class="font-weight-bold">You don't understand why people go to concerts.</label>
                             <div class="row">
                                 <div class="col-auto">
-                                    <select id="menuQuestion1" class="form-control">
+                                    <select id="menuQuestion3" class="form-control">
                                         <option>Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -93,7 +93,7 @@
                             <label for="menuQuestion4" class="font-weight-bold">There aren't enough books in the world to quench your thirst to read.</label>
                             <div class="row">
                                 <div class="col-auto">
-                                    <select id="menuQuestion1" class="form-control">
+                                    <select id="menuQuestion4" class="form-control">
                                         <option>Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -112,7 +112,7 @@
                             <label for="menuQuestion5" class="font-weight-bold">If you had to choose between getting $1,000,000 tax free or slapping your mother, your mother better brace herself.</label>
                             <div class="row">
                                 <div class="col-auto">
-                                    <select id="menuQuestion1" class="form-control">
+                                    <select id="menuQuestion5" class="form-control">
                                         <option>Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -131,7 +131,7 @@
                             <label for="menuQuestion6" class="font-weight-bold">You much prefer having a dog than a cat.</label>
                             <div class="row">
                                 <div class="col-auto">
-                                    <select id="menuQuestion1" class="form-control">
+                                    <select id="menuQuestion6" class="form-control">
                                         <option>Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -147,7 +147,7 @@
                     <div class="question mt-4" id="question7">
                         <h3>Question 7</h3>
                         <div class="form-group">
-                            <label for="menuQuestion1" class="font-weight-bold">You don't believe that aliens exist.</label>
+                            <label for="menuQuestion7" class="font-weight-bold">You don't believe that aliens exist.</label>
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion7" class="form-control">
@@ -169,7 +169,7 @@
                             <label for="menuQuestion8" class="font-weight-bold">You don't see why mobile phones are used for more than talking.</label>
                             <div class="row">
                                 <div class="col-auto">
-                                    <select id="menuQuestion1" class="form-control">
+                                    <select id="menuQuestion8" class="form-control">
                                         <option>Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -188,7 +188,7 @@
                             <label for="menuQuestion9" class="font-weight-bold">If there is no meat in the meal, you won't eat it.</label>
                             <div class="row">
                                 <div class="col-auto">
-                                    <select id="menuQuestion1" class="form-control">
+                                    <select id="menuQuestion9" class="form-control">
                                         <option>Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -204,10 +204,10 @@
                     <div class="question mt-4" id="question10">
                         <h3>Question 10</h3>
                         <div class="form-group">
-                            <label for="menuQuestion1" class="font-weight-bold">You'd rather be in poor and in love than wealthy and alone.</label>
+                            <label for="menuQuestion10" class="font-weight-bold">You'd rather be in poor and in love than wealthy and alone.</label>
                             <div class="row">
                                 <div class="col-auto">
-                                    <select id="menuQuestion1" class="form-control">
+                                    <select id="menuQuestion10" class="form-control">
                                         <option>Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -222,7 +222,7 @@
                 </form>
             </div>
             <br>
-            <button class="btn btn-block btn-success"><i class="fas fa-check-circle"></i>&nbsp Submit</button>
+            <button type="button" class="btn btn-block btn-success" id="submit" data-toggle="modal" data-target="#matchModal"><i class="fas fa-check-circle"></i>&nbsp Submit</button>
             <hr>
             <footer><a href="/api/friends">API Friends List</a> | <a href="https://github.com/avscott562/FriendFinder">GitHub Repo</a></footer>
         </div>
@@ -238,8 +238,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>User Name</p>
-                        <p>User Photo</p>
+                        <h2 id="matchName">User Name</h2>
+                       <img src="" alt="" id="matchPhoto">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -252,22 +252,52 @@
 
     <script type="text/javascript">
 
-        function friendQuery () {
+        // function friendQuery () {
+        //     //get user's current URL
+        //     var currentURL = window.location.origin;
+
+        //     //add /api/friends to URL and do an ajax get request to get the data
+        //     $.ajax({url: currentURL + "/api/friends", method: "GET"})
+        //     .done(function(friends) {
+        //         for (i=0; i<friends.length; i++) {
+        //             console.log("-----------------------------");
+        //             console.log("Name: " + friends[i].name +"\nPhoto: " + friends[i].photo + "\nScores: " + friends[i].scores);
+        //         }
+        //         $("#matchName").text(friends[2].name);
+        //         $("#matchPhoto").attr({"src": friends[2].photo, "alt": friends[2].name});
+        //     });
+        // }
+
+        // friendQuery();
+
+        $("#submit").on("click", function () {
+
+            scores = [parseInt($("#menuQuestion1").val().trim()), parseInt($("#menuQuestion2").val().trim()), parseInt($("#menuQuestion3").val().trim()), parseInt($("#menuQuestion4").val().trim()), parseInt($("#menuQuestion5").val().trim()), parseInt($("#menuQuestion6").val().trim()), parseInt($("#menuQuestion7").val().trim()), parseInt($("#menuQuestion8").val().trim()), parseInt($("#menuQuestion9").val().trim()), parseInt($("#menuQuestion10").val().trim())];
+
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: scores
+            }
+
+            console.log(newFriend);
+
             //get user's current URL
             var currentURL = window.location.origin;
 
-            //add /api/friends to URL and do an ajax get request to get the data
+            //add /api/friends to URL and do an ajax get request to get friends data
             $.ajax({url: currentURL + "/api/friends", method: "GET"})
             .done(function(friends) {
-                console.log("-----------------------------");
-                console.log("URL: " + currentURL + "/api/friends");
-                console.log("-----------------------------");
-                console.log(friends);
-                console.log("-----------------------------");
+                for (i=0; i<friends.length; i++) {
+                    console.log("-----------------------------");
+                    console.log("Name: " + friends[i].name +"\nPhoto: " + friends[i].photo + "\nScores: " + friends[i].scores);
+                }
+                // $("#matchName").text(friends[2].name);
+                // $("#matchPhoto").attr({"src": friends[2].photo, "alt": friends[2].name});
             });
-        }
 
-        friendQuery();
+            $.post()
+        });
         
     </script>
 

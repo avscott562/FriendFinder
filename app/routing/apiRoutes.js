@@ -14,13 +14,12 @@ module.exports = function (app) {
     });
     
     app.post("/api/friends", function(req, res) {
-        let newFriend = req.body;
-        newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
+        let friend = req.body;
     
-        console.log(newFriend);
+        console.log("api log " + friend);
       
-        friends.push(newFriend);
+        friends.push(friend);
       
-        res.json(newFriend);
+        res.json(friend);
     });
 }
