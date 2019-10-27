@@ -1,33 +1,19 @@
 // Dependencies
 // =============================================================
-require('dotenv').config();
-const express = require("express");
+// require('dotenv').config();
+
 const path = require("path");
 
-// Sets up the Express App
-// =============================================================
-let app = express();
-let PORT = process.env.PORT || 3000;
+module.exports = function (app) {
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+    //when the survery URL is selected, show the survey.html on the UI
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "/../public/survey.html"));
+    });
 
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/home.html"));
-});
+     //when any directory other than survey is selected, show the home page on the UI
+     app.use(function(req, res) {
+        res.sendFile(path.join(__dirname, "/../public/home.html"));
+    });
 
-app.get("/survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/survey.html"));
-});
-
-
-
-
-
-
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-// Log (server-side) when our server has started
-console.log("Server listening on: http://localhost:" + PORT);
-});
+}

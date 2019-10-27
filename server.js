@@ -15,13 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-app.get("/", function(req, res) {
-    res.json(path.join(__dirname, "public/home.html"));
-});
 
-
-
-
+require('./app/routing/apiRoutes.js')(app);
+require('./app/routing/htmlRoutes.js')(app);
 
 
 // Start our server so that it can begin listening to client requests.
