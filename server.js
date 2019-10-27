@@ -3,6 +3,7 @@
 require('dotenv').config();
 const express = require("express");
 const path = require("path");
+let friends = require("./app/data/friends.js")
 
 // Sets up the Express App
 // =============================================================
