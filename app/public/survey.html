@@ -1,230 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Friend Finder Survey</title>
-</head>
-<body>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- link bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Friend Finder Survey</title>
+        <!-- link jquery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    </head>
+    <body>
 
-    <div class="container">
+        <div class="container">
 
-        <h2 class="mt-3">Survery Questions</h2>
-        <hr>
-        <h3>About You</h3>
-        <form>
-            <div class="form-group">
-                <label for="name" class="font-weight-bold mt-3">Name (Required)</label>
-                <input type="text" id="name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="photo" class="font-weight-bold mt-2">Link to Photo Image (Required)</label>
-                <input type="text" id="photo" class="form-control" required>
-            </div>
-        </form>
-        <hr>
-        <div class="questions">
+            <h2 class="mt-3">Survery Questions</h2>
+            <hr>
+            <h3>About You</h3>
             <form>
-                <div class="question" id="question1">
-                    <h3>Question 1</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion1" class="font-weight-bold">You prefer to be alone than at a big party.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="name" class="font-weight-bold mt-3">Name (Required)</label>
+                    <input type="text" id="name" class="form-control" required>
                 </div>
-
-                <div class="question mt-4" id="question2">
-                    <h3>Question 2</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion2" class="font-weight-bold">You love being the center of attention.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question mt-4" id="question3">
-                    <h3>Question 3</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion3" class="font-weight-bold">You don't understand why people go to concerts.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question mt-4" id="question4">
-                    <h3>Question 4</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion4" class="font-weight-bold">There aren't enough books in the world to quench your thirst to read.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question mt-4" id="question5">
-                    <h3>Question 5</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion5" class="font-weight-bold">If you had to choose between getting $1,000,000 tax free or slapping your mother, your mother better brace herself.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question mt-4" id="question6">
-                    <h3>Question 6</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion6" class="font-weight-bold">You much prefer having a dog than a cat.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question mt-4" id="question7">
-                    <h3>Question 7</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion1" class="font-weight-bold">You don't believe that aliens exist.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion7" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question mt-4" id="question8">
-                    <h3>Question 8</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion8" class="font-weight-bold">You don't see why mobile phones are used for more than talking.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question mt-4" id="question9">
-                    <h3>Question 9</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion9" class="font-weight-bold">If there is no meat in the meal, you won't eat it.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question mt-4" id="question10">
-                    <h3>Question 10</h3>
-                    <div class="form-group">
-                        <label for="menuQuestion1" class="font-weight-bold">You'd rather be in poor and in love than wealthy and alone.</label>
-                        <div class="row">
-                            <div class="col-auto">
-                                <select id="menuQuestion1" class="form-control">
-                                    <option>Select an Option</option>
-                                    <option value="1">1 (Strongly Disagree)</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 (Strongly Agree)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="photo" class="font-weight-bold mt-2">Link to Photo Image (Required)</label>
+                    <input type="text" id="photo" class="form-control" required>
                 </div>
             </form>
-        </div>
-        <br>
-        <button class="btn btn-block btn-success"><i class="fas fa-check-circle"></i>&nbsp Submit</button>
-        <hr>
-        <footer><a href="/api/friends">API Friends List</a> | <a href="https://github.com/avscott562/FriendFinder">GitHub Repo</a></footer>
-    </div>
-    
-    <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-auto-replace-svg="nest"></script>
+            <hr>
+            <div class="questions">
+                <form>
+                    <div class="question" id="question1">
+                        <h3>Question 1</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion1" class="font-weight-bold">You prefer to be alone than at a big party.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-</body>
+                    <div class="question mt-4" id="question2">
+                        <h3>Question 2</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion2" class="font-weight-bold">You love being the center of attention.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question mt-4" id="question3">
+                        <h3>Question 3</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion3" class="font-weight-bold">You don't understand why people go to concerts.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question mt-4" id="question4">
+                        <h3>Question 4</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion4" class="font-weight-bold">There aren't enough books in the world to quench your thirst to read.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question mt-4" id="question5">
+                        <h3>Question 5</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion5" class="font-weight-bold">If you had to choose between getting $1,000,000 tax free or slapping your mother, your mother better brace herself.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question mt-4" id="question6">
+                        <h3>Question 6</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion6" class="font-weight-bold">You much prefer having a dog than a cat.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question mt-4" id="question7">
+                        <h3>Question 7</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion1" class="font-weight-bold">You don't believe that aliens exist.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion7" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question mt-4" id="question8">
+                        <h3>Question 8</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion8" class="font-weight-bold">You don't see why mobile phones are used for more than talking.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question mt-4" id="question9">
+                        <h3>Question 9</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion9" class="font-weight-bold">If there is no meat in the meal, you won't eat it.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question mt-4" id="question10">
+                        <h3>Question 10</h3>
+                        <div class="form-group">
+                            <label for="menuQuestion1" class="font-weight-bold">You'd rather be in poor and in love than wealthy and alone.</label>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <select id="menuQuestion1" class="form-control">
+                                        <option>Select an Option</option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <button class="btn btn-block btn-success"><i class="fas fa-check-circle"></i>&nbsp Submit</button>
+            <hr>
+            <footer><a href="/api/friends">API Friends List</a> | <a href="https://github.com/avscott562/FriendFinder">GitHub Repo</a></footer>
+        </div>
+      
+        <!-- Modal -->
+        <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="matchModalLabel">Best Match!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>User Name</p>
+                        <p>User Photo</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+
+        function friendQuery () {
+            //get user's current URL
+            var currentURL = window.location.origin;
+
+            //add /api/friends to URL and do an ajax get request to get the data
+            $.ajax({url: currentURL + "/api/friends", method: "GET"})
+            .done(function(friends) {
+                console.log("-----------------------------");
+                console.log("URL: " + currentURL + "/api/friends");
+                console.log("-----------------------------");
+                console.log(friends);
+                console.log("-----------------------------");
+            });
+        }
+
+        friendQuery();
+        
+    </script>
+
 </html>

@@ -1,3 +1,4 @@
+//array of all of the friends
 let friends = [
     {
         name: "tester",
