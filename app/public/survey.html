@@ -37,7 +37,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion1" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -56,7 +56,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion2" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -75,7 +75,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion3" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -94,7 +94,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion4" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -113,7 +113,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion5" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -132,7 +132,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion6" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -151,7 +151,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion7" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -170,7 +170,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion8" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -189,7 +189,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion9" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -208,7 +208,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <select id="menuQuestion10" class="form-control">
-                                        <option>Select an Option</option>
+                                        <option value="0">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -222,7 +222,7 @@
                 </form>
             </div>
             <br>
-            <button type="button" class="btn btn-block btn-success" id="submit" data-toggle="modal" data-target="#matchModal"><i class="fas fa-check-circle"></i>&nbsp Submit</button>
+            <button type="button" class="btn btn-block btn-success" id="submit"><i class="fas fa-check-circle"></i>&nbsp Submit</button>
             <hr>
             <footer><a href="/api/friends">API Friends List</a> | <a href="https://github.com/avscott562/FriendFinder">GitHub Repo</a></footer>
         </div>
@@ -270,33 +270,71 @@
 
         // friendQuery();
 
+        function clearForm() {
+            $("#name").val("");
+            $("#photo").val("");
+            $("#menuQuestion1").val("Select an Option");
+            $("#menuQuestion2").val("Select an Option");
+            $("#menuQuestion3").val("Select an Option");
+            $("#menuQuestion4").val("Select an Option");
+            $("#menuQuestion5").val("Select an Option");
+            $("#menuQuestion6").val("Select an Option");
+            $("#menuQuestion7").val("Select an Option");
+            $("#menuQuestion8").val("Select an Option");
+            $("#menuQuestion9").val("Select an Option");
+            $("#menuQuestion10").val("Select an Option");
+        }
+
         $("#submit").on("click", function () {
 
-            scores = [parseInt($("#menuQuestion1").val().trim()), parseInt($("#menuQuestion2").val().trim()), parseInt($("#menuQuestion3").val().trim()), parseInt($("#menuQuestion4").val().trim()), parseInt($("#menuQuestion5").val().trim()), parseInt($("#menuQuestion6").val().trim()), parseInt($("#menuQuestion7").val().trim()), parseInt($("#menuQuestion8").val().trim()), parseInt($("#menuQuestion9").val().trim()), parseInt($("#menuQuestion10").val().trim())];
+            let notAnswered = [];
+            let scores = [];
 
-            var newFriend = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                scores: scores
-            }
+            for (i=1; i<11; i++) {
+                if(parseInt($("#menuQuestion" + i).val()) < 1) {
+                    notAnswered.push(i);
+                };
+            };
 
-            console.log(newFriend);
+            if(notAnswered.length > 0) {
+                alert("Please select an answer for question(s) " + notAnswered + ".");
+            } else {
 
-            //get user's current URL
-            var currentURL = window.location.origin;
+                scores = [parseInt($("#menuQuestion1").val()), parseInt($("#menuQuestion2").val()), parseInt($("#menuQuestion3").val()), parseInt($("#menuQuestion4").val()), parseInt($("#menuQuestion5").val()), parseInt($("#menuQuestion6").val()), parseInt($("#menuQuestion7").val()), parseInt($("#menuQuestion8").val()), parseInt($("#menuQuestion9").val()), parseInt($("#menuQuestion10").val())];
 
-            //add /api/friends to URL and do an ajax get request to get friends data
-            $.ajax({url: currentURL + "/api/friends", method: "GET"})
-            .done(function(friends) {
-                for (i=0; i<friends.length; i++) {
-                    console.log("-----------------------------");
-                    console.log("Name: " + friends[i].name +"\nPhoto: " + friends[i].photo + "\nScores: " + friends[i].scores);
+                let newFriend = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: scores
                 }
-                // $("#matchName").text(friends[2].name);
-                // $("#matchPhoto").attr({"src": friends[2].photo, "alt": friends[2].name});
-            });
 
-            $.post()
+                console.log(newFriend);
+
+                //get user's current URL
+                var currentURL = window.location.origin;
+
+                //add /api/friends to URL and do an ajax get request to get friends data
+                $.ajax({url: currentURL + "/api/friends", method: "GET"})
+                .done(function(friends) {
+                    for (i=0; i<friends.length; i++) {
+                        console.log("-----------------------------");
+                        console.log("Name: " + friends[i].name +"\nPhoto: " + friends[i].photo + "\nScores: " + friends[i].scores);
+                    }
+                });
+
+                $.post(currentURL + "/api/friends", newFriend, function(data) {
+
+                    console.log("result from post " + data.name + "  " + data.photo);
+
+                    $("#matchName").text(data.name);
+                    $("#matchPhoto").attr({"src": data.photo, "alt": data.name});
+
+                })
+                .done(function() {
+                    $("#matchModal").modal("show");
+                });
+
+            };
         });
         
     </script>

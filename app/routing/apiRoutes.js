@@ -14,12 +14,16 @@ module.exports = function (app) {
     });
     
     app.post("/api/friends", function(req, res) {
-        let friend = req.body;
-    
-        console.log("api log " + friend);
+        mewFriend = req.body;
+
+        let difference = 100;
       
-        friends.push(friend);
+       
       
-        res.json(friend);
+        res.json(friends[1]);
+    })
+    .done(function(newFriend) {
+         // friends.push(friend);
+         console.log("add to friends list");
     });
 }
