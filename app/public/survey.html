@@ -228,7 +228,7 @@
         </div>
       
         <!-- Modal -->
-        <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModalLabel" aria-hidden="true">
+        <div id="matchModal" class="modal fade" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -252,23 +252,6 @@
 
     <script type="text/javascript">
 
-        // function friendQuery () {
-        //     //get user's current URL
-        //     var currentURL = window.location.origin;
-
-        //     //add /api/friends to URL and do an ajax get request to get the data
-        //     $.ajax({url: currentURL + "/api/friends", method: "GET"})
-        //     .done(function(friends) {
-        //         for (i=0; i<friends.length; i++) {
-        //             console.log("-----------------------------");
-        //             console.log("Name: " + friends[i].name +"\nPhoto: " + friends[i].photo + "\nScores: " + friends[i].scores);
-        //         }
-        //         $("#matchName").text(friends[2].name);
-        //         $("#matchPhoto").attr({"src": friends[2].photo, "alt": friends[2].name});
-        //     });
-        // }
-
-        // friendQuery();
 
         function clearForm() {
             $("#name").val("");
@@ -289,6 +272,8 @@
 
             let notAnswered = [];
             let scores = [];
+            
+
 
             for (i=1; i<11; i++) {
                 if(parseInt($("#menuQuestion" + i).val()) < 1) {
@@ -298,6 +283,8 @@
 
             if(notAnswered.length > 0) {
                 alert("Please select an answer for question(s) " + notAnswered + ".");
+            } else if (($("#name").val() === "") || ($("#photo").val() === "")) {
+                alert("Please ensure you populated a name and link to your photo.");
             } else {
 
                 scores = [parseInt($("#menuQuestion1").val()), parseInt($("#menuQuestion2").val()), parseInt($("#menuQuestion3").val()), parseInt($("#menuQuestion4").val()), parseInt($("#menuQuestion5").val()), parseInt($("#menuQuestion6").val()), parseInt($("#menuQuestion7").val()), parseInt($("#menuQuestion8").val()), parseInt($("#menuQuestion9").val()), parseInt($("#menuQuestion10").val())];
@@ -313,25 +300,14 @@
                 //get user's current URL
                 var currentURL = window.location.origin;
 
-                //add /api/friends to URL and do an ajax get request to get friends data
-                $.ajax({url: currentURL + "/api/friends", method: "GET"})
-                .done(function(friends) {
-                    for (i=0; i<friends.length; i++) {
-                        console.log("-----------------------------");
-                        console.log("Name: " + friends[i].name +"\nPhoto: " + friends[i].photo + "\nScores: " + friends[i].scores);
-                    }
-                });
-
                 $.post(currentURL + "/api/friends", newFriend, function(data) {
 
-                    console.log("result from post " + data.name + "  " + data.photo);
+                    // console.log("result from post " + data.name + "  " + data.photo);
 
                     $("#matchName").text(data.name);
                     $("#matchPhoto").attr({"src": data.photo, "alt": data.name});
+                    $("#matchModal").modal("toggle");
 
-                })
-                .done(function() {
-                    $("#matchModal").modal("show");
                 });
 
             };
