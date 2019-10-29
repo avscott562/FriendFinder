@@ -228,7 +228,7 @@
         </div>
       
         <!-- Modal -->
-        <div id="matchModal" class="modal fade" role="dialog">
+        <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" data-toggle="modal" aria-labelledby="matchModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -306,6 +306,7 @@
 
                     $("#matchName").text(data.name);
                     $("#matchPhoto").attr({"src": data.photo, "alt": data.name});
+                    
                     // modal isn't popping up for some reason so I don't know if it is working.  I get an error that .modal isn't a function.  I have bootstrap linked above so I don't know why it's not recognizing it.
                     $("#matchModal").modal("toggle");
 

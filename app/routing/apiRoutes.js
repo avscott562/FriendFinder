@@ -18,36 +18,44 @@ module.exports = function (app) {
         
         let match = {
             name: "",
-            photo: "",
-            difference: 100
+            photo: ""
         };
 
         console.log(req.body);
         
         let newFriend = req.body;
-        let friendScores = newFriend.scores;
 
+        // highest possible difference is 40.  Set initial to be higher than that.
+        let lowestDifference = 50;
         let currentDifference = 0;
+        console.log("starting " + lowestDifference);
         
         for (i=0; i<friends.length; i++) {
 
-            console.log(friends[i]);
+            // console.log(friends[i]);
             currentDifference = 0;
+            
 
-            for (s=0; s<friends[i].scores[s]; s++) {
+            for (s=0; s<friends[i].scores.length; s++) {
                 currentDifference += Math.abs(parseInt(newFriend.scores[s]) - parseInt(friends[i].scores[s]));
-                
-                if (currentDifference <= match.difference) {
-                    match.name = friends[i].name;
-                    match.photo = friends[i].photo;
-                    match.difference = currentDifference;
-                }
-            }
+            };
+
+            console.log(currentDifference);
+
+            if (currentDifference < lowestDifference) {
+                match.name = friends[i].name;
+                match.photo = friends[i].photo;
+                lowestDifference = currentDifference;
+            };
+
+            console.log(lowestDifference);
         }
        
         friends.push(newFriend);
-        //   console.log("add to friends list");
-      
+        console.log("added to friends list");
+        
+        console.log(match);
+        lowestDifference = 50;
         res.json(match);
     });
 }
